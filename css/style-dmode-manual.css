@@ -17,6 +17,7 @@
   --dark-card: #1a1a1a;
   --dark-muted: #c9c9c9;
   --dark-accent: #fff;
+  /* --accent: #ffffff; */
   --dark-dropdown-bg: #222222;
   --dark-dropdown-border: rgba(255, 255, 255, 0.1);
   --dark-dropdown-hover: #333333;
@@ -37,37 +38,39 @@ body {
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  background: linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
+  background: linear-gradient(180deg, #fcf7f7 0%, var(--bg) 100%);
   color: var(--accent);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* Ativação do Modo Escuro (Fundo do Body totalmente preto) */
+
 body.dark {
   background: linear-gradient(180deg, var(--dark-bg) 0%, var(--dark-bg) 100%);
   color: var(--dark-accent);
 }
 
-/* Container principal (Modo Claro) */
+
 .container {
   max-width: var(--maxw);
   margin: 36px auto;
   padding: 28px;
   border-radius: 22px;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgb(255, 255, 255);
   box-shadow: var(--shadow);
-  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease; /* Adicionando transição */
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
+ 
 }
 
-/* Ajuste para o Modo Escuro: Remove o fundo, a sombra e o padding */
+
 body.dark .container {
-  background: transparent;
   box-shadow: none;
-  padding: 0; 
-  /* Nota: O conteúdo dentro do container (como o Header e Hero) precisará de seu próprio padding interno
-     no Modo Escuro para não colar nas bordas. Se for o caso, me avise que ajustamos! */
+  padding: 28px;
+  border-radius: 22px;
+  background: rgb(5, 5, 5);
+  box-shadow: var(--shadow);
+  transition: background 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
 }
 
 /* ------------------- */
@@ -234,11 +237,24 @@ body.dark .dropdown-menu button:hover {
   font-weight: 600;
 }
 
+/* Chip no Modo Escuro */
+body.dark .chip {
+  color: var(--dark-accent);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
 .chip.active {
   background: var(--accent);
   color: white;
   border: none;
 }
+
+/* Chip Ativo no Modo Escuro */
+body.dark .chip.active {
+  background: var(--dark-accent);
+  color: var(--dark-bg);
+}
+
 
 .search-wrap input {
   padding: 10px 14px;
